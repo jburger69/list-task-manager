@@ -1,0 +1,13 @@
+<h2>Here are all of the tasks:</h2>
+<% @task.each do |task| %>
+    <h2>
+        <ul>
+            > <%= task.name %>
+            <ul>
+                <h4>
+                    <%= button_to "Task complete?", list_task_path(task.list, task), :method => "delete", :class => "destroy" %>
+                </h4>
+            </ul>
+        </ul>
+    </h2>
+<% end %>
