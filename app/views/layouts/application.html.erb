@@ -2,15 +2,38 @@
 <html>
   <head>
     <title>ListTaskManager</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+          <a class="navbar-brand"<%= link_to "List Manager", new_user_session_path, method: :get %></a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li><%= link_to "Login", new_user_session_path, method: :get %></li>
+            <li><%= link_to "Signup", new_user_registration_path, method: :get %></li>
+            <li><%= link_to "Lists", root_path, method: :get %></li>
+            <li><%= link_to "logout", destroy_user_session_path, method: :delete  %></li>
+          </ul>
+        </div>
+      </nav>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <%= yield %>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
   </body>
 </html>
