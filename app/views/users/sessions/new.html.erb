@@ -1,5 +1,8 @@
-<h2>Log in</h2>
 
+<div class="container container-table">
+		<div class="row vertical-center-row">
+			<div class="text-center col-md-4 col-md-offset-4" style="">
+      <h2>Log in</h2>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
@@ -24,5 +27,8 @@
 <% end %>
 
 <%= render "users/shared/links" %>
+    </div>
+  </div>
+</div>
 
-<%= button_to "Sign in with Facebook", user_facebook_omniauth_authorize %>
+
