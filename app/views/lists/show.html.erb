@@ -1,17 +1,30 @@
+<%= link_to 'Back', lists_path, class: 'btn btn-secondary mb-3' %>
+<div class="container">
 <ul>
-  <h3><%= @list.name %></h3>
-    <%= form_for([@list, Task.new]) do |f| %>
-      <%= f.text_field :name, placeholder: "Create a task" %>
-      <%= f. submit %>
+  <h2><%= @list.name %></h2>
+    <%= form_for [@list, Task.new], :html => {:class => "form-horizontal center"} do |f| %>
+      <%= f.hidden_field :status, value: 'not-started' %>
+      <div class="form-group">
+      <%= f.text_field :name, class: "form-control", placeholder: "Create a task" %>
+      <%= f. submit class: 'btn btn-primary' %>
+      </div>
     <% end %>
 
+    
 
-  <ul>
-    <%= render @list.tasks %>
-    <% if !@list.tasks.nil? %>
-    <%= button_to "Task Complete", lists_path, :method => "destroy", :class => "destroy" %>
-    <% else %>
-    <h4>There are currently no tasks associated to this list!</h4>
+
+  <h2>Here are all of the tasks:</h2>
+    <% @list.tasks.each do |task| %>
+      <div class="card mb-3">
+      <div class="card-body">
+        <div class="d-flex justify-content-between">
+          <ul><h2><%= task.name %></h2></ul>
+            <div>
+            <a class="card-link"><%= button_to 'Delete', list_task_path(task.list, task), method: :delete, class: 'btn btn-dark btn-sm btn-danger' %></a>
+            </div>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </ul>
 </ul>
+</div>
