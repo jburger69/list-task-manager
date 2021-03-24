@@ -1,22 +1,41 @@
+<div class="container">
 <% if user_signed_in? %> 
   <h2><ul> Welcome, <%= current_user.email if !current_user.nil? %></ul></h2>
     
-    <ul><%= form_for(@list) do |f| %>
-      <%= f.text_field :name, placeholder: 'i.e. Grocery' %>
-      <%= f.submit %>
+
+    <div class="inline">
+    <ul><%= form_for @list, :html => {:class => "form-horizontal center"} do |f| %>
+      <div class="form-group">
+      <%= f.text_field :name, placeholder: 'i.e. Grocery', class: "form-control" %>
+      <%= f.submit class: 'btn btn-primary' %>
+      </div>
       <% end %>
     </ul>
+    </div>
     
-    <ul><h3>Here are all lists:</h3>
-      <% @lists.each do |list| %>
-        <input class="toggle-all" type="checkbox">
-        <label for="toggle-all">Mark as complete:</label>
-        <ul><h4> &#62; <%= link_to list.name, list %></h4></ul>
+
+
+    <ul><h2>Here are all lists:</h2>
+      <% current_user.lists.each do |list| %>
+        <div class="card mb-3">
+        <div class="card-body">
+        <div class="d-flex justify-content-between">
+          <ul><h2><%= list.name %></h2></ul>
+        <div>
+        <a class="card-link"><%= button_to "view", list_path(list), :method => "get", :class => 'btn btn-dark btn-sm btn btn-warning' %>
+        <a class="card-link"><%= button_to "Delete", list_path(list), :method => "delete", :class => 'btn btn-dark btn-sm btn btn-danger' %>
+        </div>
+          </div>
+        </div>
+      </div>
       <% end %>
     </ul>
+
+
 <% else %>
   <h2><ul> Welcome!</ul></h2>
   <ul><h3>This is a List task manager application for users to keep track of their daily functions.</h3></ul>
   <ul><h3>To get started, click the menu icon and click "Sign Up" - or "Login" if you've already made an account.</h3></ul>
   <ul><h4>(You may also be given the option to sign in with your Facebook info if you'd prefer.)</h4></ul>
 <% end %>
+</div>
