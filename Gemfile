@@ -23,12 +23,13 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2'
 gem 'omniauth'
-gem "omniauth-rails_csrf_protection"
+gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-facebook'
 gem "hpricot"
 gem "ruby_parser"
 gem "dotenv-rails"
-
+gem 'pry'
+gem 'bootstrap', '~> 5.0.0.beta2'
 
 
 
