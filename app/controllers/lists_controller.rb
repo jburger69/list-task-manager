@@ -16,12 +16,19 @@ class ListsController < ApplicationController
     end
 
     def create
-        @list = List.new(list_params)
+        @list = current_user.lists.new(list_params)
         if @list.save
+            @user_list = UserList.create(list_id: @list.id, user_id: current_user.id)
             redirect_to @list
         else
             render :new
         end
+    end
+
+    def destroy
+        @list= List.find(params[:id])
+        @list.destroy
+        redirect_to @list
     end
     
     private
