@@ -11,7 +11,7 @@ class ListsController < ApplicationController
     end
 
     def new
-        @list = List.new
+        @list = current_user.list.new
         @list.tasks.build
     end
 
@@ -21,9 +21,11 @@ class ListsController < ApplicationController
             @user_list = UserList.create(list_id: @list.id, user_id: current_user.id)
             redirect_to @list
         else
+            @error = @list.errors.full_messages
             render :new
         end
     end
+
 
     def destroy
         @list= List.find(params[:id])
