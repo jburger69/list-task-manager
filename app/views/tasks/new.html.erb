@@ -1,0 +1,23 @@
+<ul><h2>Whoops that didn't work</h2>
+
+<% if @task.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+            <ul>
+            <% @task.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+<% end %>
+<br>
+
+<%= form_for [@list, Task.new] do |f| %>
+    <%= f.text_field :name, placeholder: 'i.e. Name of Task', class: "form-control" %>
+    <%= f.submit class: 'btn btn-primary' %>
+    <% end %>
+
+
+
+<%= link_to 'Back', lists_path, class: 'btn btn-secondary mb-3' %>
