@@ -1,0 +1,19 @@
+<h2>Edit Your Task:</h2>
+<h1><strong><%= @task.name %></strong></h1>
+<% if @task.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@task.errors.count, "error") %> prohibited this Task from being Edited:</h2>
+
+            <ul>
+            <% @task.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+<%= form_with(model: @task, url: list_task_path, method: "patch") do |f| %>
+  <%= f.text_field :name, placeholder: 'i.e. Grocery', class: "form-control" %>
+  <%= f.submit class: 'btn btn-primary' %>
+  </div>
+  <% end %>
