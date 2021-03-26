@@ -1,24 +1,26 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Overview
+* [Description](https://github.com/jburger69/list-task-manager#myrecipes)
+* [Installation](https://github.com/jburger69/list-task-manager#installation)
+* [Usage](https://github.com/jburger69/list-task-manager#usage)
+* [Contributing](https://github.com/jburger69/list-task-manager#contributing)
+* [License](https://github.com/jburger69/list-task-manager#license)
 
-Things you may want to cover:
+# List/Task Manager
+List/Task manager webapp provides a place for users to create and view there lists with tasks. Users can signup, login, create lists, and create tasks for those lists. Users also have the ability to delete them as well.
 
-* Ruby version
+# Installation
+To use this app, clone the [repo](https://github.com/jburger69/list-task-manager), then execute:
+`$ bundle install`
 
-* System dependencies
+# Usage
+1. Run rake `db:migrate`
+2. Run `rails s`
+3. Launch [http://localhost:3000](http://localhost:3000) in your browser
 
-* Configuration
+# Contributing
+Bug reports and pull requests are welcome at [https://github.com/jburger69/list-task-manager](https://github.com/jburger69/list-task-manager). Contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/).
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# License
+Distributed under the [MIT License](https://opensource.org/licenses/MIT)
