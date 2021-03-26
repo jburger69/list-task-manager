@@ -1,3 +1,23 @@
-<ul><h2>Create A New List with a Task</h2>
+<ul><h2>Whoops that didn't work</h2>
 
-<%= render 'list' %>
+<% if @list.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@list.errors.count, "error") %> prohibited this list from being saved:</h2>
+
+            <ul>
+            <% @list.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+<% end %>
+<br>
+
+<%= form_for @list do |f| %>
+    <%= f.text_field :name, placeholder: 'i.e. Name of list', class: "form-control" %>
+    <%= f.submit class: 'btn btn-primary' %>
+    <% end %>
+
+
+
+<%= link_to 'Back', lists_path, class: 'btn btn-secondary mb-3' %>
