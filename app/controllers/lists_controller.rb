@@ -28,7 +28,7 @@ class ListsController < ApplicationController
 
 
     def destroy
-        @list= List.find(params[:id])
+        @list = current_user.lists.find(params[:id])
         @list.destroy
         redirect_to @list
     end
@@ -37,9 +37,5 @@ class ListsController < ApplicationController
 
     def list_params
         params.require(:list).permit(:name, tasks_attributes: [:name, :status])
-    end
-
-    def require_login
-        return head(:forbidden) unless session.include? :user_id
     end
 end
