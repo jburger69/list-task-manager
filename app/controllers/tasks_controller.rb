@@ -38,7 +38,8 @@ class TasksController < ApplicationController
     
 
     def destroy
-        @task = Task.find(params[:id])
+        @list = current_user.lists.find(params[:list_id])
+        @task = @list.tasks.find(params[:id])
         @task.destroy
         redirect_to list_path(@task.list)
     end
