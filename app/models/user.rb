@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
     has_many :user_lists
     has_many :lists, through: :user_lists
+    has_many :tasks, through: :lists
 
     def self.from_omniauth(auth)
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
