@@ -36,6 +36,6 @@ class ListsController < ApplicationController
     private
 
     def list_params
-        params.require(:list).permit(:name, tasks_attributes: [:name, :status])
+        params.require(:list).permit(:name, tasks_attributes: [:name])
     end
 end
